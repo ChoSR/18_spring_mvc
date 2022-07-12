@@ -27,8 +27,8 @@ public class HomeController {
 	
 	
 	
-	//@RequestMapping(value = "/", method = RequestMethod.POST)  	//@PostMapping("/")
-	@RequestMapping(value="/", method = RequestMethod.GET) 			//@GetMapping("/")
+	@RequestMapping(value = "/", method = RequestMethod.POST)  	//@PostMapping("/")
+	//@RequestMapping(value="/", method = RequestMethod.GET) 			//@GetMapping("/")
 	public String home() {
 	
 		/*

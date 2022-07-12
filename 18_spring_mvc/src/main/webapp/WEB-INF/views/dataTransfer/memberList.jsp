@@ -26,7 +26,7 @@
 				<td>${member.memberGender }</td>
 				<td>${member.hp }</td>
 				<td>${member.email }</td>
-				<td>${member.regidence }</td>
+				<td>${member.residence }</td>
 			</tr>
 		</c:forEach>
 	</table>
