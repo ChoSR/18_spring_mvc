@@ -27,11 +27,11 @@
 			<p> 이메일 : <input type="email" name="email" ></p>		
 			<p> 거주지 : <input type="text"  name="residence" ></p>		
 		    <p><input type="submit" value="회원가입" ></p>
-		</fieldset>	
-     </form>
-     
-    <p>이미 회원가입이 되어있으면 <a href="">로그인(param)으로 이동하기</a></p>
-    <p>이미 회원가입이 되어있으면 <a href="">로그인(path variable)으로 이동하기</a></p>
+		</fieldset>
+    </form>
+    
+    <p>이미 회원가입이 되어있으면 <a href="transfer5?isMember=yes&isSession=no">로그인(param)으로 이동하기</a></p>
+    <p>이미 회원가입이 되어있으면 <a href="transfer6/yes/no">로그인(path variable)으로 이동하기</a></p>
 
 </body>
 </html>

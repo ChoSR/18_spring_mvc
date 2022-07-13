@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -17,8 +18,6 @@ public class ViewToController {
 	
 	@RequestMapping(value = "/join", method=RequestMethod.GET)
 	public String join() {
-		
-		
 		
 		return "dataTransfer/joinForm";
 	}
@@ -122,7 +121,18 @@ public class ViewToController {
 	 *	- @RequestParam을 생략하여 parameter에 직접 요청파라메타의 name값만 입력하여 데이터를 전달받을 수 있다.
 	 *
 	 */
-
+	
+	@RequestMapping(value = "/transfer4", method=RequestMethod.POST)
+	public String transfer4(@RequestParam(name = "memberName", defaultValue="김아무개") String memberName, @RequestParam(name = "residence", defaultValue="서울특별시")  String residence) {
+//	public String transfer4(String memberName, String residence) {
+		
+		System.out.println("\n transfer4 \n");
+		System.out.println("memberName : " + memberName);
+		System.out.println("residence : "  + residence);
+				
+		return "home";
+	}
+	
 	/*
 	 *  
 	 *  예시 5) @PathVariable
@@ -137,4 +147,41 @@ public class ViewToController {
 	 *  - 2) 방법은 {}로 패턴을 매칭하여 데이터에 접근 한다. 
 	 *  
 	 * */
+	
+	@RequestMapping(value="/transfer5", method=RequestMethod.GET)
+	public String transfer5(@RequestParam("isMember") String isMember, @RequestParam("isSession") String isSession) {
+		
+		
+		System.out.println("\n transfer5 \n");
+		System.out.println("isMember : " + isMember);
+		System.out.println("isSession : " + isSession);
+		
+		return "home";
+	}
+	
+	
+	@RequestMapping(value="/transfer6/{isMember}/{isSession}", method=RequestMethod.GET)
+	public String transfer6(@PathVariable String isMember, @PathVariable String isSession) {
+		
+		System.out.println("\n transfer6 \n");
+		System.out.println("isMember : " + isMember);
+		System.out.println("isSession : " + isSession);
+		
+		return "home";
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

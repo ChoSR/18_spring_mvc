@@ -165,6 +165,7 @@ public class ControllerToView {
 		httpHeaders.add("Content-Type", "text/html; charset=UTF-8");
 		
 		return new ResponseEntity<Object>("<h1>html 페이지를 반환합니다.</h1>", httpHeaders, HttpStatus.OK);
+		
 	}
 	
 }
