@@ -7,6 +7,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.spring.mvc.dataTransfer.dto.MemberDto;
 import com.spring.mvc.dataTransfer.dto.ProductDto;
 
 @Repository
@@ -89,7 +90,8 @@ public class DataTransferDao {
 	
 	// 예시 1) 단일 데이터 전송
 	public void memberInfo(String memberId) {
-		sqlSession.selectOne("dataTransfer.memberInfo", memberId);
+		MemberDto memberDto = sqlSession.selectOne("dataTransfer.memberInfo", memberId);
+		System.out.println(memberDto);
 	}
 	
 	

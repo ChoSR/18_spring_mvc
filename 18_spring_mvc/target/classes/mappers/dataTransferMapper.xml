@@ -183,7 +183,7 @@
 		
 	-->
 	
-	<select id="selectData1" parameterType="String" resultType="com.spring.mvc.dataTransfer.dto.MemberDto">
+	<select id="memberInfo" parameterType="String" resultType="com.spring.mvc.dataTransfer.dto.MemberDto">
 		SELECT
 				*
 		FROM
