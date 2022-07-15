@@ -181,7 +181,7 @@
 		- 주로 #{값} 형태(preparedStatement)를 사용하며 이 형태를 권장한다.
 		- 대소문자가 구분되므로 오타에 주의한다.
 		
-	-->
+	--> 
 	
 	<select id="memberInfo" parameterType="String" resultType="com.spring.mvc.dataTransfer.dto.MemberDto">
 		SELECT
