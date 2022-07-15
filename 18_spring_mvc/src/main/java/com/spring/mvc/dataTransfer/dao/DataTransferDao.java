@@ -6,6 +6,7 @@ import java.util.Map;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.spring.mvc.dataTransfer.dto.MemberDto;
 import com.spring.mvc.dataTransfer.dto.ProductDto;
@@ -96,6 +97,9 @@ public class DataTransferDao {
 	
 	
 	// 예시 2) DTO 전송
+	public void insertProduct(ProductDto productDto) {
+		sqlSession.insert("dataTransfer.addProduct", productDto);
+	}
 	
 	// 예시 3) Map 전송
 	

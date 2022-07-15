@@ -192,7 +192,17 @@
 				MEMBER_ID = #{memberId}  <!-- 대소문자 구분됨 -->
 	</select>
 	
-	
+	<insert id="addProduct" parameterType="com.spring.mvc.dataTransfer.dto.ProductDto">
+		
+		INSERT INTO
+				T_PRODUCT
+		VALUES(
+				#{productCode},
+				#{productName},
+				#{productPrice},
+				#{productDeliveryPrice}
+		)
+	</insert>
 	
 	
 	
