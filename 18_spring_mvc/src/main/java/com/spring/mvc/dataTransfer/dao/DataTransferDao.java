@@ -1,6 +1,7 @@
 package com.spring.mvc.dataTransfer.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +30,7 @@ public class DataTransferDao {
 	 *  
 	 * */
 	
+	
 	public void selectData1() {
 		
 		int count = sqlSession.selectOne("dataTransfer.select1");
@@ -49,16 +51,80 @@ public class DataTransferDao {
 	public void selectData3() {
 		
 		System.out.println("\n selectData3 \n");
+		List<Map<String, Object>> productList  = sqlSession.selectList("dataTransfer.select3");
+		for (Map<String, Object> map : productList) {
+			System.out.println(map);
+		}
 		
 	}
 	public void selectData4() {
 		
 		System.out.println("\n selectData4 \n");
-		
+		List<Map<String, Object>> productList  = sqlSession.selectList("dataTransfer.select4");
+		for (Map<String, Object> map : productList) {
+			System.out.println(map);
+		}
 	}
 	public void selectData5() {
 		
 		System.out.println("\n selectData5 \n");
-		
+		List<Map<String, Object>> productList  = sqlSession.selectList("dataTransfer.select5");
+		for (Map<String, Object> map : productList) {
+			System.out.println(map);
+		}
 	}
+	
+	
+	
+	/*
+	 * 
+	 * # Dao To Mapper
+	 * 
+	 *  - 2개 이상의 파라미터를 Mapper로 전달할 수 없고 오직 1개의 파라미터만 전송이 가능하다.
+	 *  - 2개 이상의 데이터는 Dto , Map형식으로 전송한다.
+	 *  - 전송되는 복수의 데이터가 Dto의 멤버로 포함되어 있으면 일반적으로 Dto 전송 방식을 사용하고
+	 *    전송되는 복수의 데이터가 Dto의 멤버에 포함되어 있지 않은 경우 Map 전송 방식을 사용한다.
+	 * 
+	 * */
+	
+	// 예시 1) 단일 데이터 전송
+	public void memberInfo(String memberId) {
+		sqlSession.selectOne("dataTransfer.memberInfo", memberId);
+	}
+	
+	
+	// 예시 2) DTO 전송
+	
+	// 예시 3) Map 전송
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
