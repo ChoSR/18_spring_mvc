@@ -204,30 +204,36 @@
 		)
 	</insert>
 	
+	<select id="searchData1" parameterType="hashmap" resultType="com.spring.mvc.dataTransfer.dto.OrderDto">
+		<![CDATA[
+			SELECT
+					*
+			FROM
+					T_ORDER
+			WHERE
+					ORDER_GOODS_QTY < #{orderGoodsQty} AND 
+					DELIVERY_STATE != #{deliveryState}
+		]]>
+	</select>
 	
+	<select id="searchData2" parameterType="hashmap" resultType="hashmap">
+		SELECT
+				*
+		FROM
+				T_ORDER O
+		 JOIN T_PRODUCT P
+		 			 ON O.DELIVERY_STATE = #{deliveryState}
+		 			AND P.PRODUCT_DELIVERY_PRICE = #{productDeliveryPrice}
+		
+	</select>
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	<select id="searchData3" parameterType="hashmap" resultType="int">
+		SELECT
+				SUM(ORDER_GOODS_QTY)
+		FROM
+				T_ORDER
+		WHERE	
+				ORDER_DATE BETWEEN #{startDate} AND #{endDate}  
+	</select>
 	
 </mapper>

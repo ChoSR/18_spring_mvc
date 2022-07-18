@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.spring.mvc.dataTransfer.dto.MemberDto;
+import com.spring.mvc.dataTransfer.dto.OrderDto;
 import com.spring.mvc.dataTransfer.dto.ProductDto;
 
 @Repository
@@ -103,34 +104,26 @@ public class DataTransferDao {
 	
 	// 예시 3) Map 전송
 	
+	public void searchData1(Map<String, Object> orderMap) {
+		System.out.println("\n searchData1 \n");
+		List<OrderDto> orderList = sqlSession.selectList("dataTransfer.searchData1", orderMap);
+		for(OrderDto orderDto : orderList) {
+			System.out.println(orderDto);
+		}
+	}
 	
+	public void searchData2(Map<String, Object> orderMap) {
+		
+		System.out.println("\n searchData2 \n");
+		List<Map<String,Object>> orderList = sqlSession.selectList("dataTransfer.searchData2" , orderMap);
+		for (Map<String, Object> map : orderList) {
+			System.out.println(map);
+		}
+	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	public void searchData3(Map<String, Object> orderMap) {
+		System.out.println("\n searchData3 \n");
+		int sumOrderGoodsQty = sqlSession.selectOne("dataTransfer.searchData3", orderMap);
+		System.out.println(sumOrderGoodsQty);
+	}
 }
