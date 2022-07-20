@@ -12,6 +12,7 @@ import com.spring.mvc.dataTransfer.dao.DataTransferDao;
 import com.spring.mvc.dataTransfer.dto.ProductDto;
 
 @Controller
+@RequestMapping("/daoToMapper")
 public class DaoToMapper {
 	
 //	private DataTransferDao temp = new DataTransferDao();

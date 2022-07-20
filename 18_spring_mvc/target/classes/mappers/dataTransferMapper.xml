@@ -49,7 +49,7 @@
 		
 	-->
 	
-	<select id="select2" resultType="com.spring.mvc.dataTransfer.dto.ProductDto">
+	<select id="select2" resultType="productDto">
 		
 		<![CDATA[
 			SELECT
@@ -183,7 +183,7 @@
 		
 	--> 
 	
-	<select id="memberInfo" parameterType="String" resultType="com.spring.mvc.dataTransfer.dto.MemberDto">
+	<select id="memberInfo" parameterType="String" resultType="memberDto">
 		SELECT
 				*
 		FROM
@@ -192,7 +192,7 @@
 				MEMBER_ID = #{memberId}  <!-- 대소문자 구분됨 -->
 	</select>
 	
-	<insert id="addProduct" parameterType="com.spring.mvc.dataTransfer.dto.ProductDto">
+	<insert id="addProduct" parameterType="productDto">
 		
 		INSERT INTO
 				T_PRODUCT
@@ -204,7 +204,7 @@
 		)
 	</insert>
 	
-	<select id="searchData1" parameterType="hashmap" resultType="com.spring.mvc.dataTransfer.dto.OrderDto">
+	<select id="searchData1" parameterType="hashmap" resultType="orderDto">
 		<![CDATA[
 			SELECT
 					*

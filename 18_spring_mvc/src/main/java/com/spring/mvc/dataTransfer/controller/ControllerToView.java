@@ -19,6 +19,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.spring.mvc.dataTransfer.dto.MemberDto;
 
 @Controller		// @Controller를 작성하여 해당 클래스가 컨트롤러임을 스프링 bean에 등록한다
+@RequestMapping("/controllerToView") // 중복되는 경로는 class위에 작성하여 중복경로를 줄일 수 있다.
 public class ControllerToView {
 	
 	/*
@@ -119,12 +120,15 @@ public class ControllerToView {
 	 *	- 한글 데이터가 전송이 되지 않으며 한글 전송시 ResponseEntity의 객체의 
 	 *	  객체명.add("Content-Type", "text/html; charset=utf-8") 메서드를 이용하여 헤더 정보를 추가하여 사용한다.
 	 */
+	
 	@RequestMapping(value = "/responseBodyEx", method=RequestMethod.GET)
-	public @ResponseBody String responseBodyEx() {
+	public @ResponseBody String responseBodyEx(HttpServletRequest request) {
+		
+//		HttpServletRequest request > request.getContextPath(); 메서드를 통하여 절대경로 접근 경로를 가져온다.
 		
 		String  data =  "<script>";
 				data += "alert('success login');";
-				data += "location.href='modelEx';";
+				data += "location.href='" + request.getContextPath() + "/controllerToView/modelEx';";  // 같은 controller 안에서는 생략 가능하다 
 			    data += "</script>";
 			    
 		return data;
@@ -181,11 +185,11 @@ public class ControllerToView {
 class RestControllerEx{
 	
 	@RequestMapping(value = "/restControllerEx", method=RequestMethod.GET)
-	public String restControllerEx() {
+	public String restControllerEx(HttpServletRequest request) {
 		
 		String  data =  "<script>";
 				data += "alert('success login');";
-				data += "location.href='modelEx';";
+				data += "location.href='" + request.getContextPath() + "/controllerToView/modelEx';";
 			    data += "</script>";
 			    
 		return data;

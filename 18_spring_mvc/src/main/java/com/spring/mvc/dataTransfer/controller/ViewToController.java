@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.spring.mvc.dataTransfer.dto.MemberDto;
 
 @Controller
+@RequestMapping("/viewToController")
 public class ViewToController {
 	
 	@RequestMapping(value = "/join", method=RequestMethod.GET)
