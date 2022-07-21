@@ -1,9 +1,12 @@
 package com.spring.mvc.dynamicQuery.controller;
 
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.spring.mvc.dynamicQuery.dao.DynamicQueryDao;
@@ -25,10 +28,10 @@ public class DynamicQueryController {
 	}
 	
 	@RequestMapping(value = "/ifEx", method=RequestMethod.GET)
-	public ModelAndView ifEx() {
+	public ModelAndView ifEx(@RequestParam Map<String, String> searchMap) {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("dynamicQuery/dynamicQueryList");
-		mv.addObject("orderMapList", "-");
+		mv.addObject("orderMapList", DynamicQueryDao.ifEx(searchMap));
 		
 		return mv;
 	}

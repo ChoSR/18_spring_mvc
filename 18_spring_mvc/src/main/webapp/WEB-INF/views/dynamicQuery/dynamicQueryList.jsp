@@ -37,5 +37,20 @@
 		</c:forEach>
 	</table>
 	
+	<form action="ifEx" method="get">
+		<p>
+			if Ex : <select name="searchKeyword">
+				<option value="all">전체</option>
+				<option value="memberId">회원아이디</option>
+				<option value="memberName">회원이름</option>
+				<option value="residence">거주지</option>
+				<option value="productName">상품이름</option>
+				<option value="deliveryState">배송상태</option>
+			</select>
+			<input type="text" name="searchWord">
+			<input type="submit" value="검색">
+		</p>
+	</form>
+	
 </body>
 </html>

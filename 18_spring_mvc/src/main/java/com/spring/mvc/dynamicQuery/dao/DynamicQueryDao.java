@@ -16,5 +16,11 @@ public class DynamicQueryDao {
 	public List<Map<String,Object>> selectOrderList(){
 		return sqlSession.selectList("dynamicQuery.list");
 	}
+
+	public List<Map<String,Object>> ifEx(Map<String, String> searchMap){
+		return sqlSession.selectList("dynamicQuery.ifEx", searchMap);
+	}
+	
+	
 	
 }
