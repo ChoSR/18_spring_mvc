@@ -257,6 +257,39 @@
 	
 	 -->
 	 
+	<select id="whereEx" parameterType="OrderDto" resultType="OrderDto">
+		
+		<!-- 에러발생 -->
+		<!-- 
+		SELECT
+				*
+		FROM
+				T_ORDER
+		WHERE 
+				<if test='memberId != null and memberId != ""'>
+					MEMBER_ID = #{memberId}
+				</if>
+				<if test='productCode != null and productCode != ""'>
+					AND PRODUCT_CODE = #{productCode}
+				</if>
+		 -->
+		 
+		<!-- 정상 동작 -->
+		SELECT
+				*
+		FROM
+				T_ORDER
+		<where>
+				<if test='memberId != null and memberId != ""'>
+					MEMBER_ID = #{memberId}
+				</if>
+				<if test='productCode != null and productCode != ""'>
+					AND PRODUCT_CODE = #{productCode}
+				</if>
+		</where> 
+		
+	</select>
+	
 	 
 	
 	<!-- 
@@ -268,6 +301,46 @@
 	
 	 -->
 	 
+	 <update id="setEx" parameterType="ProductDto">
+	 	<!-- 에러 발생 -->
+		 UPDATE
+		 		T_PRODUCT
+		 <set>
+		 		<if test='productPrice != 0'>
+			 		PRODUCT_PRICE = #{productPrice},
+		 		</if>
+		 		<if test='productDeliveryPrice != 0'>
+			 		PRODUCT_DELIVERY_PRICE = #{productDeliveryPrice}
+		 		</if>
+		 </set>
+		 WHERE
+		 		PRODUCT_CODE = #{productCode}
+	 	
+	 </update>
+	 
+	 
 	 
 	
 </mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
